@@ -11,6 +11,7 @@
       <h1>
         Data Produk
         <small>Control panel</small>
+        <?= $this->session->flashdata('pesan'); ?>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -168,17 +169,18 @@
   <div class="form-msg"></div>
   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
   <h3 style="display:block; text-align:center;">Tambah Data Produk</h3>
-
-  <form method="post" enctype="multipart/form-data" action="<?php echo base_url(). 'Produk/tambah_aksi'; ?>">
+  <form method="post" enctype="multipart/form-data" action="<?php echo base_url(). 'Produk/tambah_aksi '; ?>">
     <input id="id_produk" name="id_produk" hidden> <br>
     <div class="form-group">
-      <input type="text" id="nama_produk" class="form-control" placeholder="Nama Produk" name="nama_produk" aria-describedby="sizing-addon2" >
+      <input type="text" value="<?= set_value('nama_produk') ?>" id="nama_produk" class="form-control" placeholder="Nama Produk" name="nama_produk" aria-describedby="sizing-addon2" >
+      <?= form_error('nama_produk', '<span class="form-bar text-danger">',' !</span>') ?>                        
     </div>
      <div class="kotak">
-		<input type="number" id="harga" name="harga" class="form-control" placeholder="Harga" />
-	</div> <br>
+		<input type="number" value="<?= set_value('harga') ?>" id="harga" name="harga" class="form-control" placeholder="Harga" />
+	  <?= form_error('harga', '<span class="form-bar text-danger">',' !</span>') ?>                         
+  </div> <br>
   <div class="form-group">
-  <select id="kategori" name="kategori" class="form-control select2" style="width: 100%;">
+  <select id="kategori" name="kategori" value="<?= set_value('kategori') ?>" class="form-control select2" style="width: 100%;">
                   <option>L QUEENLY</option>
                   <option>L MTH AKSESORIS (IM)</option>
                   <option>L MTH TABUNG (LK)</option>
@@ -187,12 +189,14 @@
                   <option>L MTH AKSESORIS (LK)</option>
                   <option>S MTH STEMPEL (IM)</option>
                   </select>
+    <?= form_error('kategori', '<span class="form-bar text-danger">',' !</span>') ?>                         
     </div> 
     <div class="form-group">
-                <select id="status" name="status" class="form-control select2" style="width: 100%;">
+                <select id="status" value="<?= set_value('status') ?>" name="status" class="form-control select2" style="width: 100%;">
                    <option>bisa dijual</option>
                   <option>tidak bisa dijual</option>
                   </select>
+    <?= form_error('status', '<span class="form-bar text-danger">',' !</span>') ?>                         
     </div> 
    
       <div class="row">
